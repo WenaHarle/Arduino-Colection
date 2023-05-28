@@ -1,22 +1,22 @@
 #include <Servo.h>
-Servo servo;
-int angle = 10;
+
+Servo myservo;  // create servo object to control a servo
+// twelve servo objects can be created on most boards
+
+int pos = 0;    // variable to store the servo position
+
 void setup() {
-  servo.attach(8);
-  servo.write(angle);
+  myservo.attach(13);  // attaches the servo on pin 13 to the servo object
 }
-void loop() 
-{ 
- // scan from 0 to 180 degrees
-  for(angle = 10; angle < 180; angle++)  
-  {                                  
-    servo.write(angle);               
-    delay(15);                   
-  } 
-  // now scan back from 180 to 0 degrees
-  for(angle = 180; angle > 10; angle--)    
-  {                                
-    servo.write(angle);           
-    delay(15);       
-  } 
+
+void loop() {
+  for (pos = 0; pos <= 180; pos += 1) { // goes from 0 degrees to 180 degrees
+    // in steps of 1 degree
+    myservo.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(15);                       // waits 15ms for the servo to reach the position
+  }
+  for (pos = 180; pos >= 0; pos -= 1) { // goes from 180 degrees to 0 degrees
+    myservo.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(15);                       // waits 15ms for the servo to reach the position
+  }
 }
