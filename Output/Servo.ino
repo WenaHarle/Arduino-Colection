@@ -20,3 +20,5 @@ void loop() {
     delay(15);                       // waits 15ms for the servo to reach the position
   }
 }
+
+//Library link : https://randomnerdtutorials.com/esp32-servo-motor-web-server-arduino-ide/
